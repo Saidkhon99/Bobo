@@ -1,0 +1,23 @@
+import time
+from tkinter import *
+canvas = Tk()
+canvas.title("Reconnext&Teleplan")
+canvas.geometry("1366x768")
+canvas.resizable(1,1)
+bg = PhotoImage(file="images\mb.png")
+canvas.attributes ('-transparentcolor','')
+mycan = Canvas( width=1366, height=768)
+label = Label(font=("Arial", 140, "bold"), fg="green")
+label.pack(pady=20)
+def digitalclock():
+   text_input = time.strftime("%H:%M:%S.%p",)
+   label.place( relx=0.5, rely=0.5, anchor=CENTER)
+   label.config( text=text_input)
+   label.after(1000, digitalclock)
+digitalclock()
+mycan.create_image(0,0, image=bg,  anchor="nw")
+mycan.pack(fill="both", expand=True)
+text_lab = Label(mycan,text="Teleplan&Reconext",font=("Courier", 60,"bold"), fg="blue")
+label.place( relx=1.5, rely=1.5, anchor=S)
+text_lab.pack(side=BOTTOM)
+canvas.mainloop()
